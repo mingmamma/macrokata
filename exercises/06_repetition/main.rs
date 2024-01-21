@@ -5,6 +5,17 @@ fn print_success() {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: create `if_any!()` macro.
+macro_rules! if_any {
+    ($($e: expr),*; $code: block ) => {
+        {
+            let flag = false;
+            $(let flag = flag || $e);*;
+            if flag == true {
+                $code
+            }
+        }
+    };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 

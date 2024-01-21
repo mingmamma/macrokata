@@ -7,6 +7,15 @@ fn print_hashmap(hashmap: &HashMap<&str, &str>) {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: create `hashmap!()` macro.
+macro_rules! hashmap {
+    ($($k:literal => $v:expr,)*) => {
+        {
+            let mut hashmap = HashMap::<&str, &str>::new();
+            $(hashmap.insert($k, $v));*;
+            hashmap
+        }
+    };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 

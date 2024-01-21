@@ -23,10 +23,20 @@ impl NumberType {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // Sum together at least two expressions.
+// macro_rules! sum {
+//     ($($expr:expr),+ , $lastexpr:expr) => {
+//         $($expr + )+ $lastexpr
+//     }
+// }
 macro_rules! sum {
-    ($($expr:expr),+ , $lastexpr:expr) => {
-        $($expr + )+ $lastexpr
-    }
+    ($e:expr) => {e};
+    ($($num:literal),+) => {
+        {
+            let mut sum = 0;
+            $(sum += $num);+;
+            sum
+        }
+    };
 }
 
 macro_rules! get_number_type {
